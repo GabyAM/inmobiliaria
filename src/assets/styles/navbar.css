@@ -1,0 +1,9 @@
+.main-nav-bar-container {
+    position: sticky;
+    display: flex;
+    flex-direction: row;
+}
+
+.main-nav-bar {
+    width: 90px;
+}

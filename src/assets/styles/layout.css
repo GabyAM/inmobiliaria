@@ -1,0 +1,23 @@
+html,
+body,
+#root {
+    min-height: 100vh;
+}
+
+.main-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.main-wrapper {
+    overflow-y: scroll;
+}
+.main-wrapper,
+.main-wrapper > * {
+    width: 100%;
+}
+
+main {
+    height: 100%;
+}
