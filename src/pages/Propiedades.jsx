@@ -1,3 +1,4 @@
+import '../assets/styles/propiedades.css';
 import { Propiedad } from '../components/Propiedad';
 import { useFetchData } from '../hooks/useFetchData';
 

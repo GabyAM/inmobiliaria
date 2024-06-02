@@ -1,3 +1,4 @@
+import '../assets/styles/propiedad.css';
 import { Etiqueta } from './Etiqueta';
 import { BuildingIcon, PinIcon, UsersIcon } from './Icons';
 
