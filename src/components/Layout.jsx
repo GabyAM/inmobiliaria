@@ -11,7 +11,9 @@ export function Layout() {
             <div className="main-wrapper">
                 <main>
                     <Header></Header>
-                    <Outlet></Outlet>
+                    <div className="content-container">
+                        <Outlet></Outlet>
+                    </div>
                 </main>
                 <Footer></Footer>
             </div>

@@ -10,14 +10,29 @@ body,
     flex-direction: row;
 }
 
-.main-wrapper {
-    overflow-y: scroll;
-}
 .main-wrapper,
 .main-wrapper > * {
     width: 100%;
 }
 
+.main-wrapper {
+    min-height: 100vh;
+}
+
 main {
     height: 100%;
+    height: fit-content;
+    min-height: 100vh;
+}
+
+.content-container {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    padding: 1em 3em;
+}
+
+.content-container .main-title {
+    font-size: 24px;
 }
