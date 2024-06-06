@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
 import '../assets/styles/form.css';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { ErrorLabel } from './ErrorLabel';
 
 export function Form({
     data,
@@ -15,9 +16,12 @@ export function Form({
         reset,
         handleSubmit,
         control,
-        formState: { defaultValues, isSubmitting, errors },
-        getValues
-    } = useForm({ defaultValues: initialValues });
+        formState: { defaultValues, errors, isSubmitting },
+        getValues,
+        setError
+    } = useForm({
+        defaultValues: initialValues
+    });
 
     useEffect(() => {
         if (data && defaultValues === initialValues) {
@@ -45,15 +49,16 @@ export function Form({
                 }
             });
         }
+        if (Object.keys(formData).length === 0) return;
         return onSubmit(formData)
             .then((res) => {
                 if (!res.ok) {
-                    throw new Error('Error en fetch');
+                    throw new Error('Hubo un error al guardar');
                 }
                 navigate(successUrl);
             })
             .catch((e) => {
-                setServerError(e);
+                setError('root.serverError', { message: e.message });
             });
     }
 
@@ -84,6 +89,7 @@ export function Form({
                     </>
                 );
             })}
+            <div className="submit-section">
                 <button
                     disabled={isSubmitting || disabled}
                     className="submit-button"
@@ -93,6 +99,13 @@ export function Form({
                         : isSubmitting
                           ? 'Enviando...'
                           : 'Guardar'}
+                </button>
+                {errors?.root?.serverError && (
+                    <ErrorLabel>{errors.root.serverError.message}</ErrorLabel>
+                )}
+            </div>
+            <button type="button" onClick={() => console.log(getValues())}>
+                TEST
             </button>
         </form>
     );

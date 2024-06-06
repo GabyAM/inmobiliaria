@@ -1,3 +1,4 @@
+import '../assets/styles/errorlabel.css';
 import { ErrorIcon } from './Icons';
 
 export function ErrorLabel({ children }) {

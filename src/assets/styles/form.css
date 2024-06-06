@@ -64,3 +64,12 @@
 .main-form .submit-section > * {
     width: 100%;
 }
+.main-form .submit-button {
+    background-color: var(--main-blue-700);
+    border: none;
+    border-radius: 0.2em;
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    padding: 0.3em 0;
+}
