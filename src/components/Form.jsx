@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export function Form({
     data,
     disabled = false,
+    initialValues,
     onSubmit,
     successUrl,
     children
@@ -13,14 +14,15 @@ export function Form({
         reset,
         handleSubmit,
         control,
-        formState: { defaultValues, isSubmitting, errors }
-    } = useForm();
+        formState: { defaultValues, isSubmitting, errors },
+        getValues
+    } = useForm({ defaultValues: initialValues });
 
     useEffect(() => {
-        if (data && !defaultValues) {
+        if (data && defaultValues === initialValues) {
             reset(data);
         }
-    }, [data, reset, defaultValues]);
+    }, [data, reset, defaultValues, initialValues]);
 
     const [serverError, setServerError] = useState(null);
     const navigate = useNavigate();
@@ -31,7 +33,7 @@ export function Form({
         if (!data) {
             //en crear
             Object.keys(formData).forEach((key) => {
-                if (!formData[key] && !errors[key]) {
+                if (formData[key] == undefined && !errors[key]) {
                     delete formData[key];
                 }
             });
@@ -62,7 +64,6 @@ export function Form({
         >
             {React.Children.map(children, (child) => {
                 //el child puede ser un FormSection o un input
-                console.log(child);
                 return (
                     <>
                         {React.createElement(child.type, {
