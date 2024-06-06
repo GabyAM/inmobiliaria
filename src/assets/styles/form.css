@@ -1,0 +1,66 @@
+.main-form {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    max-width: 400px;
+    /* temporal! */
+    transition: opacity 0.3s ease;
+}
+.main-form.pending {
+    opacity: 0.4;
+    pointer-events: none;
+}
+.main-form fieldset {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    gap: 1.2em;
+}
+
+.form-section-title {
+    display: grid;
+    grid-template-columns: 10% min-content auto;
+    align-items: center;
+    gap: 0.3em;
+}
+
+.form-section-title h3 {
+    width: fit-content;
+    white-space: nowrap;
+    color: var(--grey-700);
+    font-size: 1em;
+    font-weight: 600;
+}
+.horizontal-separator {
+    height: 1px;
+    background-color: var(--grey-100);
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input.checkbox-input {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-input label {
+    font-weight: 500;
+    padding: 0 0.5em;
+}
+.form-input input,
+.form-input select {
+    background-color: var(--main-blue-100);
+    border: none;
+    padding: 0.25em;
+    font-size: 1.25em;
+    font-weight: 300;
+    border-radius: 0.2em;
+}
+
+.main-form .submit-section,
+.main-form .submit-section > * {
+    width: 100%;
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../assets/styles/form.css';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,7 +25,6 @@ export function Form({
         }
     }, [data, reset, defaultValues, initialValues]);
 
-    const [serverError, setServerError] = useState(null);
     const navigate = useNavigate();
 
     function handleFormSubmit(formData) {
@@ -59,7 +59,7 @@ export function Form({
 
     return (
         <form
-            className="propiedad-form"
+            className={`main-form ${isSubmitting ? 'pending' : ''}`}
             onSubmit={handleSubmit(handleFormSubmit)}
         >
             {React.Children.map(children, (child) => {
@@ -84,11 +84,15 @@ export function Form({
                     </>
                 );
             })}
-            <button
-                disabled={isSubmitting || disabled}
-                className="submit-button"
-            >
-                {isSubmitting ? 'Enviando...' : 'Guardar'}
+                <button
+                    disabled={isSubmitting || disabled}
+                    className="submit-button"
+                >
+                    {disabled
+                        ? 'Cargando...'
+                        : isSubmitting
+                          ? 'Enviando...'
+                          : 'Guardar'}
             </button>
         </form>
     );
