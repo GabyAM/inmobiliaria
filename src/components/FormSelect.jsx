@@ -1,4 +1,5 @@
 import { useController } from 'react-hook-form';
+import { ErrorLabel } from './ErrorLabel';
 
 export function FormSelect({
     control,
@@ -8,7 +9,8 @@ export function FormSelect({
     placeholder,
     data,
     isLoading,
-    error
+    error,
+    validationError
 }) {
     const {
         field: { onChange, onBlur, value, ref, name: fieldName }
@@ -47,6 +49,7 @@ export function FormSelect({
                         );
                     })}
             </select>
+            {validationError && <ErrorLabel>{validationError}</ErrorLabel>}
         </div>
     );
 }

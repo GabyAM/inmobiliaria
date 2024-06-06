@@ -61,12 +61,27 @@ export function Form({
             onSubmit={handleSubmit(handleFormSubmit)}
         >
             {React.Children.map(children, (child) => {
-                return React.createElement(child.type, {
-                    ...{
-                        ...child.props,
-                        control
-                    }
-                });
+                //el child puede ser un FormSection o un input
+                console.log(child);
+                return (
+                    <>
+                        {React.createElement(child.type, {
+                            ...{
+                                ...child.props,
+                                control,
+                                ...(child.type.name === 'FormSection' && {
+                                    errors
+                                }),
+                                ...(child.props.name &&
+                                    errors &&
+                                    errors[child.props.name] && {
+                                        validationError:
+                                            errors[child.props.name].message
+                                    })
+                            }
+                        })}
+                    </>
+                );
             })}
             <button
                 disabled={isSubmitting || disabled}
