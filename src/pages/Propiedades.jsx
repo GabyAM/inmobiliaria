@@ -5,13 +5,13 @@ import { useFetchData } from '../hooks/useFetchData';
 
 function fetchPropiedades() {
     return fetch('http://localhost/propiedades')
-        .then((res) => {
-            if (!res.ok) {
-                throw new Error('Error al obtener propiedades');
-            }
-            return res.json();
-        })
-        .then((response) => response.data);
+    .then((res) => {
+        if (!res.ok) {
+            throw new Error('Error al obtener propiedades');
+        }
+        return res.json();
+    })
+    .then((response) => response.data);
 }
 
 export function Propiedades() {
