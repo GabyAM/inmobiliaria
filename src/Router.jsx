@@ -1,6 +1,8 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { TiposPropiedad } from './pages/TiposPropiedad';
+import { NewTiposPropiedad } from './pages/NewTiposPropiedad';
+import { EditTiposPropiedad } from './pages/EditTiposPropiedad';
 import { Propiedades } from './pages/Propiedades';
 import { Reservas } from './pages/Reservas';
 import { EditPropiedad } from './pages/EditPropiedad';
@@ -15,6 +17,14 @@ export function Router() {
                 {
                     path: '/tipos_propiedad',
                     element: <TiposPropiedad></TiposPropiedad>
+                },
+                {
+                    path: '/tipos_propiedad/:id/edit',
+                    element: <EditTiposPropiedad></EditTiposPropiedad>
+                },
+                {
+                    path: '/tipos_propiedad/new',
+                    element: <NewTiposPropiedad></NewTiposPropiedad>
                 },
                 {
                     path: '/propiedades',
