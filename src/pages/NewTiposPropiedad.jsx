@@ -5,7 +5,7 @@ export function NewTiposPropiedad (){
         return fetch('http://localhost/tipo_propiedades',{
             method: "POST",
             body: JSON.stringify(formData),
-            head:{ 'Content-Type': 'application/json' }
+            headers:{ 'Content-Type': 'application/json' }
             }
         );
     }

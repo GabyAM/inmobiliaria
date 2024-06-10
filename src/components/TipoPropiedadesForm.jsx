@@ -1,9 +1,11 @@
 import { Form } from './Form';
 import { FormInput } from './FormInput';
 import { FormSection } from './FormSection';
-export function TipoPropiedadesForm ( { initialValues, onSubmit } ){
+
+export function TipoPropiedadesForm ( { data, initialValues, onSubmit } ){
     return(
         <Form
+            data={data}
             initialValues={initialValues}
             onSubmit={onSubmit}
             successUrl="/tipo_propiedades"
@@ -13,7 +15,7 @@ export function TipoPropiedadesForm ( { initialValues, onSubmit } ){
                     name="tipo de propiedad"
                     label="Tipo de propiedad"
                     rules = {{
-                        require: 'este campo es obligatorio'
+                        required: 'este campo es obligatorio'
                     }}
                 >
                 </FormInput>
