@@ -1,14 +1,8 @@
-import { useController } from 'react-hook-form';
+import { useController, useFormContext } from 'react-hook-form';
 import { ErrorLabel } from './ErrorLabel';
 
-export function FormInput({
-    type = 'text',
-    control,
-    name,
-    rules,
-    label,
-    validationError
-}) {
+export function FormInput({ type = 'text', name, rules, label }) {
+    const { control, errors } = useFormContext();
     const {
         field: { onChange, onBlur, value, ref, name: fieldName }
     } = useController({ name, control, rules });
@@ -33,7 +27,9 @@ export function FormInput({
                 ref={ref}
                 min={0}
             ></input>
-            {validationError && <ErrorLabel>{validationError}</ErrorLabel>}
+            {errors && errors[name] && (
+                <ErrorLabel>{errors[name].message}</ErrorLabel>
+            )}
         </div>
     );
 }

@@ -1,7 +1,8 @@
-import { useController } from 'react-hook-form';
+import { useController, useFormContext } from 'react-hook-form';
 import { ErrorLabel } from './ErrorLabel';
 
-export function FormCheckbox({ control, name, label, rules, validationError }) {
+export function FormCheckbox({ name, label, rules }) {
+    const { control, errors } = useFormContext();
     const {
         field: { onChange, onBlur, value, ref, name: fieldName }
     } = useController({ name, control, rules });
@@ -23,7 +24,9 @@ export function FormCheckbox({ control, name, label, rules, validationError }) {
                 checked={Boolean(value)}
                 ref={ref}
             ></input>
-            {validationError && <ErrorLabel>{validationError}</ErrorLabel>}
+            {errors && errors[name] && (
+                <ErrorLabel>{errors[name].message}</ErrorLabel>
+            )}
         </div>
     );
 }

@@ -1,17 +1,16 @@
-import { useController } from 'react-hook-form';
+import { useController, useFormContext } from 'react-hook-form';
 import { ErrorLabel } from './ErrorLabel';
 
 export function FormSelect({
-    control,
     name,
     rules,
     label,
     placeholder,
     data,
     isLoading,
-    error,
-    validationError
+    error
 }) {
+    const { control, errors } = useFormContext();
     const {
         field: { onChange, onBlur, value, ref, name: fieldName }
     } = useController({ name, control, rules: { ...rules } });
@@ -49,7 +48,9 @@ export function FormSelect({
                         );
                     })}
             </select>
-            {validationError && <ErrorLabel>{validationError}</ErrorLabel>}
+            {errors && errors[name] && (
+                <ErrorLabel>{errors[name].message}</ErrorLabel>
+            )}
         </div>
     );
 }

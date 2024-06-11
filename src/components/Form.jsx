@@ -1,6 +1,6 @@
 import '../assets/styles/form.css';
 import React, { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { FormProvider, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ErrorLabel } from './ErrorLabel';
 
@@ -63,50 +63,33 @@ export function Form({
     }
 
     return (
-        <form
-            className={`main-form ${isSubmitting ? 'pending' : ''}`}
-            onSubmit={handleSubmit(handleFormSubmit)}
-        >
-            {React.Children.map(children, (child) => {
-                //el child puede ser un FormSection o un input
-                return (
-                    <>
-                        {React.createElement(child.type, {
-                            ...{
-                                ...child.props,
-                                control,
-                                ...(child.type.name === 'FormSection' && {
-                                    errors
-                                }),
-                                ...(child.props.name &&
-                                    errors &&
-                                    errors[child.props.name] && {
-                                        validationError:
-                                            errors[child.props.name].message
-                                    })
-                            }
-                        })}
-                    </>
-                );
-            })}
-            <div className="submit-section">
-                <button
-                    disabled={isSubmitting || disabled}
-                    className="submit-button"
-                >
-                    {disabled
-                        ? 'Cargando...'
-                        : isSubmitting
-                          ? 'Enviando...'
-                          : 'Guardar'}
+        <FormProvider {...{ control, errors }}>
+            <form
+                className={`main-form ${isSubmitting ? 'pending' : ''}`}
+                onSubmit={handleSubmit(handleFormSubmit)}
+            >
+                {children}
+                <div className="submit-section">
+                    <button
+                        disabled={isSubmitting || disabled}
+                        className="submit-button"
+                    >
+                        {disabled
+                            ? 'Cargando...'
+                            : isSubmitting
+                              ? 'Enviando...'
+                              : 'Guardar'}
+                    </button>
+                    {errors?.root?.serverError && (
+                        <ErrorLabel>
+                            {errors.root.serverError.message}
+                        </ErrorLabel>
+                    )}
+                </div>
+                <button type="button" onClick={() => console.log(getValues())}>
+                    TEST
                 </button>
-                {errors?.root?.serverError && (
-                    <ErrorLabel>{errors.root.serverError.message}</ErrorLabel>
-                )}
-            </div>
-            <button type="button" onClick={() => console.log(getValues())}>
-                TEST
-            </button>
-        </form>
+            </form>
+        </FormProvider>
     );
 }
