@@ -10,6 +10,7 @@
     height: 100%;
     border-radius: 0.4em;
     aspect-ratio: 1/0.74;
+    object-fit: cover;
 }
 
 .propiedad .propiedad-info {

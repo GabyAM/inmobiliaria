@@ -52,7 +52,7 @@ export function ImageInput({ name, rules }) {
                     onChange={handleInputChange}
                     accept="image/jpeg,image/jpg,image/png,image/gif,image/webp"
                 ></input>
-                <img src={value}></img>
+                <img src={value || '/propiedad-image-placeholder.png'}></img>
             </div>
             {errors && errors[name] && (
                 <ErrorLabel>{errors[name].message}</ErrorLabel>

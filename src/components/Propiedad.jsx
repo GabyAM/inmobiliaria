@@ -6,7 +6,9 @@ export function Propiedad({ propiedad }) {
     return (
         <div className="propiedad">
             <div className="image-container">
-                <img src={propiedad.imagen}></img>
+                <img
+                    src={propiedad.imagen || '/propiedad-image-placeholder.png'}
+                ></img>
             </div>
             <div className="propiedad-info">
                 <div className="top-section">
