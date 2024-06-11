@@ -8,11 +8,11 @@ export function TipoPropiedadesForm ( { data, initialValues, onSubmit } ){
             data={data}
             initialValues={initialValues}
             onSubmit={onSubmit}
-            successUrl="/tipo_propiedades"
+            successUrl= "/tipo_propiedades"
         >
             <FormSection title = "INGRESE EL TIPO DE PROPIEDAD">
                 <FormInput
-                    name="tipo de propiedad"
+                    name="nombre" //tiene que coincidir con el de Backend
                     label="Tipo de propiedad"
                     rules = {{
                         required: 'este campo es obligatorio'

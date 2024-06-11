@@ -22,7 +22,7 @@ export function EditTiposPropiedad (){
 
     function editTiposPropiedad(formData){
         return fetch(`http://localhost/tipo_propiedades/${id}`,{
-            method: "PUT",
+            method: 'PUT',
             body: JSON.stringify(formData),
             headers: { 'Content-Type': 'application/json' }
         });
