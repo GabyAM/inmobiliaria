@@ -1,3 +1,4 @@
+import '../assets/styles/imageinput.css';
 import { useController, useFormContext } from 'react-hook-form';
 import { ImageIcon } from './Icons';
 import { ErrorLabel } from './ErrorLabel';
