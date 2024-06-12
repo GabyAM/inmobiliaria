@@ -1,3 +1,5 @@
+import '../assets/styles/detailpropiedad.css';
+import '../assets/styles/detail.css';
 import { Link, useParams } from 'react-router-dom';
 import { useFetchData } from '../hooks/useFetchData';
 import { useCallback } from 'react';

@@ -1,0 +1,63 @@
+.detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.detail-heading {
+    display: flex;
+    gap: 0.6em;
+    font-size: 2em;
+}
+.detail-heading > * {
+    display: inline;
+    font-size: 1em;
+    font-weight: 700;
+}
+.detail-heading span {
+    color: var(--grey-500);
+}
+.detail-heading h1 {
+    color: var(--main-blue-700);
+}
+
+.detail-list .content-section {
+    gap: 0.4em;
+}
+.detail-list .content-section .content-section-title {
+    margin-bottom: 0.25em;
+}
+
+.detail-list .content-section span {
+    font-weight: 500;
+    color: var(--main-blue-900);
+}
+
+.detail-actions {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3em;
+}
+.detail-actions button {
+    border: none;
+    border-radius: 100vh;
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: 0.125em 1.75em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3em;
+    width: 100%;
+}
+
+.detail-actions .edit-button {
+    background-color: var(--main-blue-100);
+    color: var(--main-blue-900);
+}
+
+.detail-actions .delete-button {
+    background-color: var(--error-color-light);
+    color: var(--error-color);
+}
