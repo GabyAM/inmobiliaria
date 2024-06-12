@@ -7,6 +7,7 @@ import { Propiedades } from './pages/Propiedades';
 import { Reservas } from './pages/Reservas';
 import { EditPropiedad } from './pages/EditPropiedad';
 import { NewPropiedad } from './pages/NewPropiedad';
+import { DetailPropiedad } from './pages/DetailPropiedad';
 
 export function Router() {
     const router = createBrowserRouter([
@@ -29,6 +30,10 @@ export function Router() {
                 {
                     path: '/propiedades',
                     element: <Propiedades></Propiedades>
+                },
+                {
+                    path: '/propiedades/:id',
+                    element: <DetailPropiedad></DetailPropiedad>
                 },
                 {
                     path: 'propiedades/:id/edit',
