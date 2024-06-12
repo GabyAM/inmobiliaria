@@ -1,4 +1,4 @@
-import '../assets/styles/TiposPropiedades.css';
+import '../assets/styles/tiposPropiedades.css';
 
 export function TipoPropiedades ({ tipoPropiedades }){ //le paso la funcion de pages? , porque va {} TiposPropiedad?
     return (

@@ -1,7 +1,7 @@
 import { useFetchData } from '../hooks/useFetchData';
-import { Reserva } from '../components/Reserva'
+import { Reservas } from '../components/Reservas'
 
-function fetchReservas (){
+function fetchReserva (){
     return fetch ('http://localhost/reservas')
     .then((res) => {
         if (!res.ok){
@@ -12,28 +12,28 @@ function fetchReservas (){
     .then((Response) => Response.data);
 }
 
-export function Reservas() {
+export function Reserva() {
     
     const {
-        data:reservas,
+        data:reserva,
         isLoading,
         error
-    } = useFetchData (fetchReservas);
+    } = useFetchData (fetchReserva);
 
     return (
         <>
-            <h1>Reservas</h1>
+            <h1>Reserva</h1>
             <div>{
                 isLoading ? (
                     <p>carganodo...</p>
                 ) 
                 : error ? (<p>{error.message} </p>) 
                 : (
-                    reservas.map((reserva) =>
-                        <Reserva
-                        key = {reserva.id}
-                        reserva = {reserva}
-                    />
+                    reserva.map((reservas) =>
+                    <Reservas
+                        key = {reservas.id}
+                        reservas = {reservas}
+                    ></Reservas>
                     )
                 )}
             </div>

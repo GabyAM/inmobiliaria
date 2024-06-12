@@ -4,7 +4,9 @@ import { TiposPropiedad } from './pages/TiposPropiedad';
 import { NewTiposPropiedad } from './pages/NewTiposPropiedad';
 import { EditTiposPropiedad } from './pages/EditTiposPropiedad';
 import { Propiedades } from './pages/Propiedades';
-import { Reservas } from './pages/Reservas';
+import { Reserva } from './pages/Reserva';
+import { NewReserva } from './pages/NewReserva';
+import { EditReserva } from './pages/EditReserva';
 import { EditPropiedad } from './pages/EditPropiedad';
 import { NewPropiedad } from './pages/NewPropiedad';
 
@@ -19,11 +21,11 @@ export function Router() {
                     element: <TiposPropiedad></TiposPropiedad>
                 },
                 {
-                    path: '/tipos_propiedad/:id/edit',
+                    path: 'tipos_propiedad/:id/edit',
                     element: <EditTiposPropiedad></EditTiposPropiedad>
                 },
                 {
-                    path: '/tipos_propiedad/new',
+                    path: 'tipos_propiedad/new',
                     element: <NewTiposPropiedad></NewTiposPropiedad>
                 },
                 {
@@ -40,7 +42,15 @@ export function Router() {
                 },
                 {
                     path: '/reservas',
-                    element: <Reservas></Reservas>
+                    element: <Reserva></Reserva>
+                },
+                {
+                    path: 'reservas/:id/edit',
+                    element: <EditReserva></EditReserva>
+                },
+                {
+                    path: 'reservas/new',
+                    element: <NewReserva></NewReserva>
                 }
             ]
         }

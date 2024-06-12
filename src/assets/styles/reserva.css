@@ -1,0 +1,36 @@
+.reserva {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 2em;
+    height: auto;
+}
+
+.reserva .encabezado {
+    flex-direction: row;
+}
+.reserva .reserva-info {
+    display: flex;
+    flex-direction: column;
+}
+.reserva-info .top-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+.reserva-info .mid-section,
+.reserva-info .mid-section .sub-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+
+/*
+a. Propiedad (domicilio, no propiedad_id)
+b. Inquilino(nombre y apellido del inquilino, no inquilino_id)
+c. Fecha desde
+d. Cantidad noches
+e. valor total*/
