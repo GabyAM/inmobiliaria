@@ -11,26 +11,9 @@
     pointer-events: none;
 }
 .main-form fieldset {
-    display: flex;
-    flex-direction: column;
-    border: none;
     gap: 1.2em;
 }
 
-.form-section-title {
-    display: grid;
-    grid-template-columns: 10% min-content auto;
-    align-items: center;
-    gap: 0.3em;
-}
-
-.form-section-title h3 {
-    width: fit-content;
-    white-space: nowrap;
-    color: var(--grey-700);
-    font-size: 1em;
-    font-weight: 600;
-}
 .horizontal-separator {
     height: 1px;
     background-color: var(--grey-100);

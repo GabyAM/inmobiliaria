@@ -1,9 +1,10 @@
+import '../assets/styles/contentsection.css';
 import React from 'react';
 
-export function FormSection({ children, title }) {
+export function ContentSection({ children, title }) {
     return (
-        <fieldset>
-            <div className="form-section-title">
+        <fieldset className="content-section">
+            <div className="content-section-title">
                 <div className="horizontal-separator"></div>
                 <h3>{title}</h3>
                 <div className="horizontal-separator"></div>

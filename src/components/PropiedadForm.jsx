@@ -1,7 +1,7 @@
 import { Form } from './Form';
 import { FormCheckbox } from './FormCheckbox';
 import { FormInput } from './FormInput';
-import { FormSection } from './FormSection';
+import { ContentSection } from './ContentSection';
 import { FormSelect } from './FormSelect';
 import { useFetchData } from '../hooks/useFetchData';
 import { fetchLocalidades } from '../api/localidades';
@@ -54,7 +54,7 @@ export function PropiedadForm({ data, initialValues, onSubmit }) {
                     }
                 }}
             ></ImageInput>
-            <FormSection title="Información general">
+            <ContentSection title="Información general">
                 <FormInput
                     name="domicilio"
                     label="Domicilio"
@@ -88,8 +88,8 @@ export function PropiedadForm({ data, initialValues, onSubmit }) {
                     isLoading={isLoadingLocalidades}
                     error={errorLocalidades}
                 ></FormSelect>
-            </FormSection>
-            <FormSection title="Información sobre el interior">
+            </ContentSection>
+            <ContentSection title="Información sobre el interior">
                 <FormInput
                     type="number"
                     name="cantidad_habitaciones"
@@ -110,8 +110,8 @@ export function PropiedadForm({ data, initialValues, onSubmit }) {
                     label="Cochera"
                     rules={{}}
                 ></FormCheckbox>
-            </FormSection>
-            <FormSection title="Información sobre la reserva">
+            </ContentSection>
+            <ContentSection title="Información sobre la reserva">
                 <FormInput
                     type="date"
                     name="fecha_inicio_disponibilidad"
@@ -150,7 +150,7 @@ export function PropiedadForm({ data, initialValues, onSubmit }) {
                     label="Disponible"
                     rules={{}}
                 ></FormCheckbox>
-            </FormSection>
+            </ContentSection>
         </Form>
     );
 }
