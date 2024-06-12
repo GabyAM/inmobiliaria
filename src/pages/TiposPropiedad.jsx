@@ -1,4 +1,4 @@
-import '../assets/styles/TiposPropiedad.css'; //hacer css
+import '../assets/styles/tiposPropiedad.css'; //hacer css
 import { TipoPropiedades } from '../components/TipoPropiedades';
 import { useFetchData } from '../hooks/useFetchData';
 
