@@ -1,0 +1,23 @@
+.filters-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.filters-section h3 {
+    font-size: 1em;
+    color: var(--grey-700);
+}
+
+.filters-section .form-input {
+    font-size: 0.8em;
+}
+
+.filters-section .reset-button {
+    background: none;
+    border: 1px solid var(--grey-100);
+    color: var(--grey-700);
+    border-radius: 0.2em;
+    font-size: 1.25em;
+    font-weight: 700;
+}

@@ -1,3 +1,4 @@
+import '../assets/styles/filtersform.css';
 import { Form } from './Form';
 import { FormSelect } from './FormSelect';
 import { FormInput } from './FormInput';

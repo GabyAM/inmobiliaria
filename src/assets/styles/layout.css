@@ -26,7 +26,7 @@ main {
 }
 
 .content-container {
-    max-width: 100%;
+    max-width: 1600px;
     display: flex;
     flex-direction: column;
     gap: 3em;
