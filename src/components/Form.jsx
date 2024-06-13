@@ -10,7 +10,8 @@ export function Form({
     initialValues,
     onSubmit,
     successUrl,
-    children
+    children,
+    actionType = 'async'
 }) {
     const {
         reset,
@@ -49,17 +50,22 @@ export function Form({
                 }
             });
         }
+
         if (Object.keys(formData).length === 0) return;
-        return onSubmit(formData)
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error('Hubo un error al guardar');
-                }
-                navigate(successUrl);
-            })
-            .catch((e) => {
-                setError('root.serverError', { message: e.message });
-            });
+        if (actionType === 'async') {
+            return onSubmit(formData)
+                .then((res) => {
+                    if (!res.ok) {
+                        throw new Error('Hubo un error al guardar');
+                    }
+                    navigate(successUrl);
+                })
+                .catch((e) => {
+                    setError('root.serverError', { message: e.message });
+                });
+        } else {
+            return onSubmit(formData);
+        }
     }
 
     return (
