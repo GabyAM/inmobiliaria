@@ -1,0 +1,28 @@
+.inquilinos {
+    max-width: 400px;
+}
+
+.inquilino .top-section,
+.inquilino .bottom-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2em;
+    justify-content: space-between;
+}
+
+.inquilino h2 {
+    color: var(--main-blue-700);
+}
+.inquilino .mid-section {
+    margin-bottom: 1em;
+}
+
+.inquilino .bottom-section {
+    align-items: end;
+}
+
+.inquilino .bottom-section span {
+    color: var(--grey-700);
+    font-weight: 700;
+}

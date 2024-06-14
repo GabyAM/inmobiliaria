@@ -29,3 +29,42 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+.actions-section {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8em;
+    margin: auto 0 auto auto;
+}
+.actions-section button {
+    aspect-ratio: 1/1;
+    border-radius: 100vh;
+    display: flex;
+    place-items: center;
+    border: none;
+    padding: 0.2em;
+}
+
+.actions-section .edit-button {
+    background-color: var(--main-blue-100);
+    color: var(--main-blue-700);
+}
+
+.actions-section .delete-button {
+    background-color: var(--error-color-light);
+    color: var(--error-color-dark);
+}
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+}
+.list-container h1 {
+    font-size: 1.8em;
+}
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}

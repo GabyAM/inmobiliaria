@@ -1,3 +1,4 @@
+import '../assets/styles/inquilinos.css';
 import { useFetchData } from '../hooks/useFetchData';
 import { deleteInquilino, fetchInquilinos } from '../api/inquilinos';
 import { Inquilino } from '../components/Inquilino';
