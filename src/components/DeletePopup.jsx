@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import '../assets/styles/deletepopup.css';
 import { useState } from 'react';
 import { ErrorLabel } from './ErrorLabel';
 

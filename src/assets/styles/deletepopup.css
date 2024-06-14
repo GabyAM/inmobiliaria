@@ -1,0 +1,60 @@
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-container .popup-card {
+    max-width: 400px;
+    width: 100%;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    padding: 2em 1.6em;
+    border-radius: 0.8rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.popup-card h1 {
+    font-size: 2em;
+    color: var(--main-blue-700);
+    margin-bottom: 0.3em;
+}
+
+.popup-card p {
+    color: var(--grey-700);
+    margin-bottom: 3em;
+}
+
+.popup-card button {
+    font-size: 1.6em;
+    font-weight: 700;
+    border-radius: 0.25em;
+    padding: 0.2em;
+    width: calc(100% - 5em);
+    margin: 0 auto;
+    margin-bottom: 0.7em;
+}
+
+.popup-card .delete-button {
+    background-color: var(--error-color);
+    border: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.popup-card .delete-button.pending {
+    background-color: var(--error-color-light);
+}
+
+.popup-card .cancel-button {
+    /* background-color: var(--grey-100); */
+    border: 1px solid var(--grey-500);
+    color: var(--grey-700);
+}
