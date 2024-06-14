@@ -1,3 +1,5 @@
+import '../assets/styles/detail.css';
+import '../assets/styles/detailinquilino.css';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { ContentSection } from '../components/ContentSection';
 import { DeletePopup } from '../components/DeletePopup';

@@ -1,0 +1,29 @@
+.inquilino-detail {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+.inquilino-detail .content-section,
+.inquilino-detail .reservas-inquilino {
+    gap: 0.4em;
+}
+.inquilino-detail .reservas-inquilino {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.inquilino-detail .reservas-inquilino .reserva-summary {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 500;
+    gap: 0.6em;
+}
+
+.inquilino-detail .reserva-summary span:last-child {
+    color: var(--grey-700);
+    margin: auto 0 auto auto;
+}
