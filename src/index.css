@@ -11,6 +11,8 @@
     --grey-500: #898989;
     --grey-100: #e5e7ef;
     --error-color: #ff5c00;
+    --error-color-light: #ffe5d7;
+    --error-color-dark: #7b2c00;
 }
 
 * {

@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     gap: 2em;
+    width: 100%;
 }
 
 .propiedad .image-container,
@@ -16,20 +17,37 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
+    width: 100%;
+}
+
+.propiedad .propiedad-info > * {
+    width: 100%;
 }
 
 .propiedad-info .top-section,
-.propiedad-info .mid-section .sub-section {
+.propiedad-info .mid-section .sub-section,
+.propiedad-info .bottom-section {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.propiedad-info .top-section {
     gap: 2em;
+    justify-content: space-between;
 }
 
 .propiedad-info .mid-section {
     display: flex;
     flex-direction: column;
     gap: 0.6em;
+    font-weight: 500;
+}
+.propiedad-info .mid-section .sub-section {
+    gap: 1em;
+}
+.propiedad-info .mid-section .section-separator {
+    font-weight: 900;
 }
 
 .propiedad-info h2 {
@@ -38,16 +56,36 @@
     font-size: 24px;
 }
 
-.propiedad-info .sub-section .item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-weight: 500;
-    gap: 0.5em;
-}
-
 .propiedad-info .aviso-disponibilidad {
     font-weight: 600;
     color: var(--grey-500);
+}
+
+.propiedad-info .bottom-section {
     margin: auto 0 0 0;
+}
+
+.propiedad-info .bottom-section .actions-section {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8em;
+    margin: auto 0 auto auto;
+}
+.propiedad-info .actions-section button {
+    aspect-ratio: 1/1;
+    border-radius: 100vh;
+    display: flex;
+    place-items: center;
+    border: none;
+    padding: 0.2em;
+}
+
+.propiedad-info .actions-section .edit-button {
+    background-color: var(--main-blue-100);
+    color: var(--main-blue-700);
+}
+
+.propiedad-info .actions-section .delete-button {
+    background-color: var(--error-color-light);
+    color: var(--error-color-dark);
 }
