@@ -13,3 +13,14 @@ export function fetchPropiedades(filters) {
         })
         .then((response) => response.data);
 }
+
+export function deletePropiedad(id) {
+    return fetch(`http://localhost/propiedades/${id}`, {
+        method: 'DELETE'
+    }).then((res) => {
+        if (!res.ok && res.status === 500) {
+            throw new Error('');
+        }
+        return res.json();
+    });
+}
