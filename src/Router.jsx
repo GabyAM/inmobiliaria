@@ -10,6 +10,7 @@ import { EditReserva } from './pages/EditReserva';
 import { EditPropiedad } from './pages/EditPropiedad';
 import { NewPropiedad } from './pages/NewPropiedad';
 import { DetailPropiedad } from './pages/DetailPropiedad';
+import { Inquilinos } from './pages/Inquilinos';
 
 export function Router() {
     const router = createBrowserRouter([
@@ -56,6 +57,10 @@ export function Router() {
                 {
                     path: 'reservas/new',
                     element: <NewReserva></NewReserva>
+                },
+                {
+                    path: '/inquilinos',
+                    element: <Inquilinos></Inquilinos>
                 }
             ]
         }
