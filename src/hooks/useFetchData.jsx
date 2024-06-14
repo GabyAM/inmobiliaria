@@ -20,6 +20,7 @@ export function useFetchData(fetchFn) {
 
     return {
         data,
+        setData,
         isLoading,
         error
     };

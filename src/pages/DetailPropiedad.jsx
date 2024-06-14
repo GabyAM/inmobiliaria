@@ -1,6 +1,6 @@
 import '../assets/styles/detailpropiedad.css';
 import '../assets/styles/detail.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useFetchData } from '../hooks/useFetchData';
 import { useCallback, useState } from 'react';
 import { deletePropiedad, fetchPropiedad } from '../api/propiedad';
@@ -16,6 +16,7 @@ export function DetailPropiedad() {
     const { data: propiedad, isLoading, error } = useFetchData(fetchFn);
 
     const [isDeleting, setIsDeleting] = useState(false);
+    const navigate = useNavigate();
 
     if (isLoading) return <p>cargando...</p>;
     if (error) return <p>hubo un error</p>;
@@ -27,7 +28,7 @@ export function DetailPropiedad() {
                     description="Estas seguro de eliminar esta propiedad? no se va a poder recuperar una vez eliminada."
                     onCancel={() => setIsDeleting(false)}
                     onDelete={() => deleteFn()}
-                    successUrl="/propiedades"
+                    onSuccess={() => navigate('/propiedades')}
                 ></DeletePopup>
             )}
             <div className="propiedad-detail">

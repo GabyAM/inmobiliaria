@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import '../assets/styles/deletepopup.css';
 import { useState } from 'react';
 import { ErrorLabel } from './ErrorLabel';
@@ -8,12 +7,10 @@ export function DeletePopup({
     description,
     onDelete,
     onCancel,
-    successUrl
+    onSuccess
 }) {
-    const navigate = useNavigate();
     const [error, setError] = useState(null);
     const [isDeleting, setIsDeleting] = useState(false);
-
     function handleDelete() {
         if (isDeleting) return;
         setIsDeleting(true);
@@ -23,7 +20,7 @@ export function DeletePopup({
                 if (res.error) {
                     throw new Error(res.error);
                 }
-                navigate(successUrl);
+                onSuccess();
             })
             .catch((e) => setError(e.message))
             .finally(() => setIsDeleting(false));
