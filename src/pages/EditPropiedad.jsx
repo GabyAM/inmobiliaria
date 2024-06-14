@@ -2,17 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useFetchData } from '../hooks/useFetchData';
 import { useCallback } from 'react';
 import { PropiedadForm } from '../components/PropiedadForm';
-
-function fetchPropiedad(id) {
-    return fetch(`http://localhost/propiedades/${id}`)
-        .then((res) => {
-            if (!res.ok) {
-                throw new Error('Error al obtener propiedad');
-            }
-            return res.json();
-        })
-        .then((response) => response.data);
-}
+import { fetchPropiedad } from '../api/propiedad';
 
 export function EditPropiedad() {
     const { id } = useParams();

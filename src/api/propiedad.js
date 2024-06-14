@@ -1,3 +1,14 @@
+export function fetchPropiedad(id) {
+    return fetch(`http://localhost/propiedades/${id}`)
+        .then((res) => {
+            if (!res.ok) {
+                throw new Error('Error al obtener propiedad');
+            }
+            return res.json();
+        })
+        .then((response) => response.data);
+}
+
 export function fetchPropiedades(filters) {
     let url = 'http://localhost/propiedades';
     if (filters) {
