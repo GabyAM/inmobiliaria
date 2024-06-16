@@ -68,3 +68,8 @@ a {
     flex-direction: column;
     gap: 3em;
 }
+
+.horizontal-separator {
+    height: 1px;
+    background-color: var(--grey-100);
+}

@@ -1,3 +1,4 @@
+import '../assets/styles/localidades.css';
 import React, { useState } from 'react';
 import { deleteLocalidad, fetchLocalidades } from '../api/localidades';
 import { useFetchData } from '../hooks/useFetchData';

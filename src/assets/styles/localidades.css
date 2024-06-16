@@ -1,0 +1,14 @@
+.localidades {
+    max-width: 400px;
+}
+
+.localidad {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.localidad h2 {
+    color: var(--main-blue-700);
+    font-size: 24px;
+}
