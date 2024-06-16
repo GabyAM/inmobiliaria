@@ -13,6 +13,7 @@
     --error-color: #ff5c00;
     --error-color-light: #ffe5d7;
     --error-color-dark: #7b2c00;
+    --bg-color: #f9fbff;
 }
 
 * {
@@ -23,8 +24,15 @@
 
 body {
     font-family: 'Noto Sans';
+    background-color: var(--bg-color);
 }
 
+input,
+select,
+textarea,
+button {
+    font: inherit;
+}
 a {
     text-decoration: none;
     color: inherit;

@@ -11,14 +11,5 @@
     align-self: flex-end;
 }
 .propiedades-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
     max-width: 800px;
-}
-
-.propiedades {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5em;
 }
