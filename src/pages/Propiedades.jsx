@@ -5,6 +5,7 @@ import { FiltersForm } from '../components/FiltersForm';
 import { Propiedad } from '../components/Propiedad';
 import { useFetchData } from '../hooks/useFetchData';
 import { DeletePopup } from '../components/DeletePopup';
+import { Link } from 'react-router-dom';
 
 export function Propiedades() {
     const [filters, setFilters] = useState(null);
@@ -35,9 +36,14 @@ export function Propiedades() {
                     onSuccess={onDeleteSuccess}
                 ></DeletePopup>
             )}
-            <div className="propiedades-container">
-                <h1 className="main-title">Propiedades</h1>
-                <div className="propiedades">
+            <div className="propiedades-container list-container">
+                <div className="heading">
+                    <h1>Propiedades</h1>
+                    <Link to="/propiedades/new">
+                        <button>Crear nueva</button>
+                    </Link>
+                </div>
+                <div className="propiedades list">
                     {isLoading ? (
                         <p>Cargando...</p>
                     ) : error ? (

@@ -33,7 +33,12 @@ export function Localidades() {
                     onSuccess={onDeleteSuccess}
                 ></DeletePopup>
             )}
-            <h1>Localidades</h1>
+            <div className="heading">
+                <h1>Localidades</h1>
+                <Link to="/localidades/new">
+                    <button>Crear nueva</button>
+                </Link>
+            </div>
             <div className="list localidades">
                 {isLoading ? (
                     <p>Cargando...</p>

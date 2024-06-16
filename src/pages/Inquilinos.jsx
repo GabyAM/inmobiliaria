@@ -4,6 +4,7 @@ import { deleteInquilino, fetchInquilinos } from '../api/inquilinos';
 import { Inquilino } from '../components/Inquilino';
 import { useState } from 'react';
 import { DeletePopup } from '../components/DeletePopup';
+import { Link } from 'react-router-dom';
 
 export function Inquilinos() {
     const {
@@ -31,7 +32,12 @@ export function Inquilinos() {
                     onSuccess={onDeleteSuccess}
                 ></DeletePopup>
             )}
-            <h1>Inquilinos</h1>
+            <div className="heading">
+                <h1>Inquilinos</h1>
+                <Link to="/inquilinos/new">
+                    <button>Crear nuevo</button>
+                </Link>
+            </div>
             <div className="list inquilinos">
                 {isLoading ? (
                     <p>Cargando...</p>

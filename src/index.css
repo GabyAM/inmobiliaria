@@ -67,6 +67,23 @@ a {
     display: flex;
     flex-direction: column;
     gap: 4em;
+    min-width: 600px;
+    width: fit-content;
+}
+.list-container .heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.list-container .heading button {
+    padding: 0.1em 1em;
+    border: 1px solid var(--grey-500);
+    background-color: var(--main-blue-700);
+    color: white;
+    border-radius: 0.25em;
+    font-weight: 700;
+    font-size: 1.5em;
 }
 .list-container h1 {
     font-size: 1.8em;
