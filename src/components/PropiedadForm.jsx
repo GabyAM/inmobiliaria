@@ -33,22 +33,25 @@ export function PropiedadForm({ data, initialValues, onSubmit }) {
                 name="imagen"
                 rules={{
                     validate: async (value) => {
-                        let file;
-                        try {
-                            const response = await fetch(value);
-                            if (!response.ok) throw new Error('');
-                            file = await response.blob();
-                        } catch {
-                            return 'No se pudo validar la imagen';
-                        }
-                        const maxSize = 5 * 1024 * 1024;
-                        if (file.size > maxSize)
-                            return 'El archivo excede el límite';
+                        if (value) {
+                            let file;
+                            try {
+                                const response = await fetch(value);
+                                if (!response.ok) throw new Error('');
+                                file = await response.blob();
+                            } catch {
+                                return 'No se pudo validar la imagen';
+                            }
+                            const maxSize = 5 * 1024 * 1024;
+                            if (file.size > maxSize)
+                                return 'El archivo excede el límite';
 
-                        const acceptedTypes = /image\/(jpeg|jpg|png|gif|webp)/;
+                            const acceptedTypes =
+                                /image\/(jpeg|jpg|png|gif|webp)/;
 
-                        if (!acceptedTypes.test(file.type)) {
-                            return 'Tipo de archivo inválido';
+                            if (!acceptedTypes.test(file.type)) {
+                                return 'Tipo de archivo inválido';
+                            }
                         }
                         return true;
                     }

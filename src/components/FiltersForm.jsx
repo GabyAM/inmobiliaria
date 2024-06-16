@@ -19,7 +19,6 @@ export function FiltersForm({ onSubmit }) {
             <Form
                 initialValues={{ disponible: false }}
                 onSubmit={onSubmit}
-                disabled={!localidades}
                 successUrl="/propiedades"
                 actionType="sync"
             >

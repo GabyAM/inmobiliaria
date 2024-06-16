@@ -92,9 +92,6 @@ export function Form({
                         </ErrorLabel>
                     )}
                 </div>
-                <button type="button" onClick={() => console.log(getValues())}>
-                    TEST
-                </button>
             </form>
         </FormProvider>
     );
