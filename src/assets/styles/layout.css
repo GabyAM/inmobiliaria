@@ -17,6 +17,7 @@ body,
 
 .main-wrapper {
     min-height: 100vh;
+    padding: 0 2em;
 }
 
 main {
@@ -30,5 +31,5 @@ main {
     display: flex;
     flex-direction: column;
     gap: 3em;
-    padding: 1em 3em 4em;
+    padding: 1em 0 4em 3em;
 }

@@ -1,7 +1,6 @@
 .main-nav-bar-container {
     position: sticky;
     display: flex;
-    flex-direction: row;
     height: 100vh;
     top: 0;
 }
@@ -22,6 +21,10 @@
 }
 
 .expand-button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -2em;
     margin: auto;
     height: fit-content;
     background: none;

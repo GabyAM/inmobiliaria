@@ -16,8 +16,8 @@
 .propiedad .propiedad-info {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     gap: 1em;
-    width: 100%;
 }
 
 .propiedad .propiedad-info > * {
@@ -51,7 +51,6 @@
 }
 
 .propiedad-info h2 {
-    word-break: break-all;
     color: var(--main-blue-700);
     font-size: 24px;
 }

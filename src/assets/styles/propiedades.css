@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     gap: 2em;
+    flex-wrap: wrap;
 }
 
 .propiedades-layout form {
