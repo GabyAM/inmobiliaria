@@ -30,3 +30,19 @@ export function deleteInquilino(id) {
         return res.json();
     });
 }
+
+export function editInquilino(formData, id) {
+    return fetch(`http://localhost/inquilinos/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' }
+    });
+}
+
+export function addInquilino(formData) {
+    return fetch(`http://localhost/inquilinos`, {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' }
+    });
+}
