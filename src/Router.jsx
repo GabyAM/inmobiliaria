@@ -14,6 +14,9 @@ import { Inquilinos } from './pages/Inquilinos';
 import { DetailInquilino } from './pages/DetailInquilino';
 import { EditInquilino } from './pages/EditInquilino';
 import { NewInquilino } from './pages/NewInquilino';
+import { Localidades } from './pages/Localidades';
+import { NewLocalidad } from './pages/NewLocalidad';
+import { EditLocalidad } from './pages/EditLocalidad';
 
 export function Router() {
     const router = createBrowserRouter([
@@ -76,6 +79,18 @@ export function Router() {
                 {
                     path: '/inquilinos/new',
                     element: <NewInquilino></NewInquilino>
+                },
+                {
+                    path: '/localidades',
+                    element: <Localidades></Localidades>
+                },
+                {
+                    path: '/localidades/new',
+                    element: <NewLocalidad></NewLocalidad>
+                },
+                {
+                    path: '/localidades/:id/edit',
+                    element: <EditLocalidad></EditLocalidad>
                 }
             ]
         }
