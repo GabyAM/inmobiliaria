@@ -1,42 +1,59 @@
 import { useFetchData } from '../hooks/useFetchData';
 import { Reservas } from '../components/Reservas'
-
-function fetchReserva (){
-    return fetch ('http://localhost/reservas')
-    .then((res) => {
-        if (!res.ok){
-            throw new Error ('Error al obtener las reservas') 
-        }
-        return res.json();
-    })
-    .then((Response) => Response.data);
-}
+import { deleteReserva, fetchReservas } from '../api/reservas';
+import { DeletePopup } from '../components/DeletePopup';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export function Reserva() {
-    
+
     const {
-        data:reserva,
+        data: reservas,
+        setData: setInquilinos,
         isLoading,
         error
-    } = useFetchData (fetchReserva);
+    } = useFetchData(fetchReservas);
+
+    const [deletingId, setDeletingId] = useState(null);
+    function onDeleteSuccess() {
+        setInquilinos((prev) => {
+            return prev.filter((prop) => prop.id !== deletingId);
+        });
+        setDeletingId(null);
+    }
 
     return (
-        <>
-            <h1>Reserva</h1>
-            <div>{
+        <div className="list-container">
+            {deletingId && (
+                <DeletePopup
+                    title="Eliminar Reserva"
+                    description="Estas seguro de eliminar esta reserva? no se va a poder recuperar una vez eliminado."
+                    onCancel={() => setDeletingId(null)}
+                    onDelete={() => deleteReserva(deletingId)}
+                    onSuccess={onDeleteSuccess}
+                ></DeletePopup>
+            )}
+            <div className="heading">
+                <h1>Reserva</h1>
+                <Link to={"/reservas/new"}>
+                    <button> crear nuevo</button>
+                </Link>
+            </div>
+            <div className="list">{
                 isLoading ? (
                     <p>carganodo...</p>
                 ) 
                 : error ? (<p>{error.message} </p>) 
                 : (
-                    reserva.map((reservas) =>
+                    reservas.map((reserva) =>(
                     <Reservas
-                        key = {reservas.id}
-                        reservas = {reservas}
+                        key = {reserva.id}
+                        reservas = {reserva}
+                        onDeleteClick={() => setDeletingId(reserva.id)}
                     ></Reservas>
-                    )
+                    ))
                 )}
             </div>
-        </>
+        </div>
     );
 }

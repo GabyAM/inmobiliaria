@@ -1,13 +1,15 @@
+import '../assets/styles/reservas.css';
+import { Link } from "react";
 import { Etiqueta } from './Etiqueta';
-import '../assets/styles/reserva.css';
-import { BuildingIcon, PinIcon, UsersIcon } from './Icons'
-//1.edificio 2.persona 3.localidad
-export function Reservas ({ reservas }){
-    return (
+import { DeleteIcon, EditIcon } from "./Icons";
 
-    <div className="reserva">
-        <div className='encabezado'>
-            <Etiqueta color={"celeste"}>
+export function Reservas ({ reservas, onDeleteClick }){
+
+    
+    return (
+    <div className="reservas">
+        <div className="top-section">
+                <Etiqueta color={"celeste"}>
                 {<h1 className="domicilio">{reservas.propiedad.domicilio}</h1>}
             </Etiqueta>
         </div>
@@ -27,27 +29,3 @@ export function Reservas ({ reservas }){
 
     );
 }
-/*
-a. Propiedad (domicilio, no propiedad_id)
-b. Inquilino(nombre y apellido del inquilino, no inquilino_id)
-c. Fecha desde
-d. Cantidad noches
-e. valor total */
-
-
-    /*<div className="reserva">
-        <div>
-            <h2>Reserva:{reserva.id}</h2>
-        </div>
-        <div className="reserva-info">
-            <div> 
-                <Etiqueta color={'celeste'}>
-                    {reserva.propiedad.domicilio}
-                </Etiqueta>
-            </div>
-            <div> 
-                <p>{reserva.inquilino.nombre}</p>
-            </div>
-                <p>{reserva.inquilino.apellido}</p>
-        </div>
-    </div>*/

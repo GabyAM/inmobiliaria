@@ -1,11 +1,12 @@
-import { addTiposPropiedad } from '../api/tipoPropiedades';
 import { TipoPropiedadesForm } from '../components/TipoPropiedadesForm';
+import { newTiposPropiedad } from '../api/tipoPropiedades';
 
-export function NewTiposPropiedad() {
-    return (
+export function NewTiposPropiedad (){
+
+    return(
         <TipoPropiedadesForm
-            initialValues={{ nombre: '' }}
-            onSubmit={addTiposPropiedad}
+            initialValues = {{ nombre:'' }}
+            onSubmit = {newTiposPropiedad} 
         />
     );
 }

@@ -22,7 +22,8 @@ export function ReservaForm({ data, initialValues, onSubmit }) {
     return (
         <Form
             data={data}
-            disabled={!isLoadingInquilinos || !isLoadingTipoPropiedades}
+            initialValues={initialValues}
+            disabled={!inquilinos || !tipoPropiedades}
             onSubmit={onSubmit}
             successUrl={'/reservas'}
         >
@@ -30,7 +31,7 @@ export function ReservaForm({ data, initialValues, onSubmit }) {
                 <FormSelect
                     name="propiedad_id"
                     rules={{
-                        require: 'este campo es requeirdo'
+                        required: 'este campo es requeirdo'
                     }}
                     label="propiedad"
                     placeholder="selecione el tipo de propiedad"
@@ -43,7 +44,7 @@ export function ReservaForm({ data, initialValues, onSubmit }) {
                 ></FormSelect>
                 <FormSelect
                     name="inquilino_id"
-                    rules={{ requere: 'este campo es requerido' }}
+                    rules={{ required: 'este campo es requerido' }}
                     label="inquilino"
                     placeholder="selecione el inquilino"
                     data={inquilinos?.map((inqui) => ({
@@ -56,22 +57,19 @@ export function ReservaForm({ data, initialValues, onSubmit }) {
                 <FormInput
                     name="fecha_desde"
                     type="date"
-                    rules={{ requere: 'este campo es requerido' }}
+                    rules={{ required: 'este campo es requerido' }}
                     label="fecha de reserva"
                 ></FormInput>
                 <FormInput
                     name="cantidad_noches"
                     type="number"
-                    rules={{ requere: 'este campo es requerido', min: 1 }}
+                    rules={{ 
+                        required: 'este campo es requerido',
+                        min: 1 
+                    }}
                     label="cantidad de noches"
                 ></FormInput>
             </ContentSection>
         </Form>
     );
 }
-/*              <FormInput
-                    name='valor_total'
-                    type='number'
-                    rules={{requere:'este campo es requerido'}}
-                    label='valor total'
-                ></FormInput> */

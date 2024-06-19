@@ -3,7 +3,7 @@ import '../assets/styles/detail.css';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useFetchData } from '../hooks/useFetchData';
 import { useCallback, useState } from 'react';
-import { deletePropiedad, fetchPropiedad } from '../api/propiedad';
+import { deletePropiedad, fetchPropiedades } from '../api/propiedad';
 import { ContentSection } from '../components/ContentSection';
 import { DeleteIcon, EditIcon } from '../components/Icons';
 import { DeletePopup } from '../components/DeletePopup';
@@ -11,7 +11,7 @@ import { DeletePopup } from '../components/DeletePopup';
 export function DetailPropiedad() {
     const { id } = useParams();
 
-    const fetchFn = useCallback(() => fetchPropiedad(id), [id]);
+    const fetchFn = useCallback(() => fetchPropiedades(id), [id]);
     const deleteFn = useCallback(() => deletePropiedad(id), [id]);
     const { data: propiedad, isLoading, error } = useFetchData(fetchFn);
 

@@ -1,4 +1,4 @@
-export function fetchTipoPropiedades() {
+export function fetchTipoPropiedades() { //propiedades
     return fetch('http://localhost/tipo_propiedades')
         .then((res) => {
             if (!res.ok) {
@@ -28,7 +28,7 @@ export function editTiposPropiedad(id, formData) {
     });
 }
 
-export function addTiposPropiedad(formData) {
+export function newTiposPropiedad(formData) {
     return fetch(`http://localhost/tipo_propiedades`, {
         method: 'POST',
         body: JSON.stringify(formData),

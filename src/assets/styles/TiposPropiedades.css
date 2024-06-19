@@ -1,0 +1,9 @@
+.tipo-propiedades {
+    display: flex;
+    flex-direction: row;
+    gap: 4em;
+}
+
+.tipo-propiedades h2 {
+    color: var(--main-blue-700);
+}

@@ -1,38 +1,61 @@
-import { fetchTipoPropiedades } from '../api/tipoPropiedades';
-import '../assets/styles/tiposPropiedad.css'; //hacer css
+import '../assets/styles/tiposPropiedad.css';
+import { useState } from 'react';
 import { TipoPropiedades } from '../components/TipoPropiedades';
 import { useFetchData } from '../hooks/useFetchData';
-
-// function fechTiposPropiedades() {
-//     return fetch('http://localhost/tipo_propiedades') //Fetch se utiliza para hacer solicitudes HTTP a una API y obtener datos
-//         .then((res) => {
-//             if (!res.ok) {
-//                 throw new Error('error al obtener los Tipos de propiedad');
-//             }
-//             return res.json();
-//         })
-//         .then((response) => response.data); //res y response son lo mismo?
-// }
+import { DeletePopup } from '../components/DeletePopup';
+import { deleteTipoPropiedad, fetchTipoPropiedades } from '../api/tipoPropiedades';
+import { Link } from 'react-router-dom';
 
 export function TiposPropiedad() {
+
+    const [deletingId, setDeletingId] = useState(null);
+    
     const {
         data: tiposPropiedad,
-        isLoading, //para indicar si la operacion esta en curso?
+        setData: setTiposPropiedades,
+        isLoading,
         error
     } = useFetchData(fetchTipoPropiedades);
+    
+    function onDeleteSuccess() {
+        setTiposPropiedades((prev) => {
+            return prev.filter((prop) => prop.id !== deletingId);
+        });
+        setDeletingId(null);
+    }
 
     return (
-        <>
-            <h1 className="main-title">Tipos de Propiedades</h1>
-            <div>
+        <div className="list-container tipo-Propiedad-container">
+            {deletingId && (
+                <DeletePopup
+                    title="Eliminar Tipo de Propiedad"
+                    description="Estas seguro de eliminar este tipo de Propiedad? no se va a poder recuperar una vez eliminada."
+                    onCancel={() => setDeletingId(null)}
+                    onDelete={() => deleteTipoPropiedad(deletingId)}
+                    onSuccess={onDeleteSuccess}
+                ></DeletePopup>
+            )}    
+            <div className="heading">
+                <h1>Propiedades</h1>
+                <Link to="/tipos_propiedad/new">
+                    <button>Crear nueva</button>
+                </Link>
+            </div> 
+            <div className="list tipo-propiedad">
                 {isLoading ? ( //isLoading cargando boolean
                     <p>Cargando...</p>
                 ) : error ? (
                     <p>{error.message}</p>
                 ) : (
-                    <TipoPropiedades tipoPropiedades={tiposPropiedad} />
+                    tiposPropiedad.map((tp) => (
+                        <TipoPropiedades
+                            key={tp.id}
+                            tipoPropiedades={tp}
+                            onDeleteClick={() => setDeletingId(tp.id)}
+                        ></TipoPropiedades>
+                    ))
                 )}
             </div>
-        </>
+        </div>
     );
 }

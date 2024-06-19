@@ -1,5 +1,4 @@
-.tipo-propiedades {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5em;
+.tipo-propiedad {
+    max-width: 400px;
 }
+
