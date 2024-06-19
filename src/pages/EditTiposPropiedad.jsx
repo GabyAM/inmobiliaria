@@ -23,7 +23,7 @@ export function EditTiposPropiedad (){
             <TipoPropiedadesForm
                 data={tipoPropiedad}
                 initialValues={tipoPropiedad}
-                onSubmit={editTiposPropiedad(id)}
+                onSubmit={(formData) => editTiposPropiedad(id, formData)}
             />
         );
     }

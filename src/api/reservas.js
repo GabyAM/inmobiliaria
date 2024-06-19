@@ -44,7 +44,7 @@ export function fetchRerserva(id) {
         .then((response) => response.data);
 }
 
-export function editReserva(id, formData) {
+export function editReserva(formData, id) {
     return fetch(`http://localhost/reservas/${id}`, {
         method: 'PUT',
         body: JSON.stringify(formData),
@@ -57,5 +57,17 @@ export function newReserva(formData) {
         method: 'PUT',
         body: JSON.stringify(formData),
         headers: { 'Content-Type': 'application/json' }
+    });
+}
+
+
+export function deleteReserva(id) {
+    return fetch(`http://localhost/reservas/${id}`, {
+        method: 'DELETE'
+    }).then((res) => {
+        if (!res.ok && res.status === 500) {
+            throw new Error('');
+        }
+        return res.json();
     });
 }
