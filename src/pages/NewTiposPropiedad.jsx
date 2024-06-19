@@ -1,19 +1,11 @@
-import { TipoPropiedadesForm } from "../components/TipoPropiedadesForm";
+import { addTiposPropiedad } from '../api/tipoPropiedades';
+import { TipoPropiedadesForm } from '../components/TipoPropiedadesForm';
 
-export function NewTiposPropiedad (){
-    function addTiposPropiedad (formData){
-        return fetch(`http://localhost/tipo_propiedades`,{
-            method: "POST",
-            body: JSON.stringify(formData),
-            headers: { 'Content-Type': 'application/json' }
-            }
-        );
-    }
-
-    return(
+export function NewTiposPropiedad() {
+    return (
         <TipoPropiedadesForm
-            initialValues = {{ nombre:'' }}
-            onSubmit = {addTiposPropiedad} 
+            initialValues={{ nombre: '' }}
+            onSubmit={addTiposPropiedad}
         />
     );
 }

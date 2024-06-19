@@ -35,3 +35,19 @@ export function deletePropiedad(id) {
         return res.json();
     });
 }
+
+export function editPropiedad(id, formData) {
+    return fetch(`http://localhost/propiedades/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' }
+    });
+}
+
+export function addPropiedad(formData) {
+    return fetch(`http://localhost/propiedades`, {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' }
+    });
+}
