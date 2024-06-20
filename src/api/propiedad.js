@@ -1,5 +1,5 @@
-export function fetchPropiedad(id) {
-    return fetch(`http://localhost/propiedades/${id}`)
+export function fetchPropiedad(id, populado = true) {
+    return fetch(`http://localhost/propiedades/${id}?populado=${populado}`)
         .then((res) => {
             if (!res.ok) {
                 throw new Error('Error al obtener propiedad');

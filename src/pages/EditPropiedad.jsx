@@ -7,7 +7,7 @@ import { editPropiedad, fetchPropiedad } from '../api/propiedad';
 export function EditPropiedad() {
     const { id } = useParams();
 
-    const fetchFn = useCallback(() => fetchPropiedad(id), [id]);
+    const fetchFn = useCallback(() => fetchPropiedad(id, false), [id]);
     const { data: propiedad, isLoading, error } = useFetchData(fetchFn);
 
     if (isLoading) {
