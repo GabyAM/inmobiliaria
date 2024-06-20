@@ -6,7 +6,7 @@ import { ContentSection } from './ContentSection';
 import { FormInput } from './FormInput';
 import { FormSelect } from './FormSelect';
 
-export function ReservaForm({ data, initialValues, onSubmit }) {
+export function ReservaForm({ data, onSubmit }) {
     const {
         data: tipoPropiedades,
         isLoading: isLoadingTipoPropiedades,
@@ -22,7 +22,6 @@ export function ReservaForm({ data, initialValues, onSubmit }) {
     return (
         <Form
             data={data}
-            initialValues={initialValues}
             disabled={!inquilinos || !tipoPropiedades}
             onSubmit={onSubmit}
             successUrl={'/reservas'}
@@ -63,9 +62,9 @@ export function ReservaForm({ data, initialValues, onSubmit }) {
                 <FormInput
                     name="cantidad_noches"
                     type="number"
-                    rules={{ 
+                    rules={{
                         required: 'este campo es requerido',
-                        min: 1 
+                        min: 1
                     }}
                     label="cantidad de noches"
                 ></FormInput>

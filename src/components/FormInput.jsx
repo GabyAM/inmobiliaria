@@ -1,7 +1,7 @@
 import { useController, useFormContext } from 'react-hook-form';
 import { ErrorLabel } from './ErrorLabel';
 
-export function FormInput({ type = 'text', name, rules, label }) {
+export function FormInput({ type = 'text', name, rules = {}, label }) {
     const { control, errors } = useFormContext();
     const {
         field: { onChange, onBlur, value, ref, name: fieldName }

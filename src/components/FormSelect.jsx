@@ -3,7 +3,7 @@ import { ErrorLabel } from './ErrorLabel';
 
 export function FormSelect({
     name,
-    rules,
+    rules = {},
     label,
     placeholder,
     data,

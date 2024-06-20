@@ -43,7 +43,7 @@ export function ImageInput({ name, rules }) {
                     htmlFor="image-file-input"
                     className="custom-image-input"
                 >
-                    <div className="flex-col">
+                    <div className="icon-container">
                         <ImageIcon width={96} height={96}></ImageIcon>
                     </div>
                 </label>

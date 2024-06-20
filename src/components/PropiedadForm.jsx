@@ -98,7 +98,6 @@ export function PropiedadForm({ data, initialValues, onSubmit }) {
                     name="cantidad_habitaciones"
                     label="Habitaciones"
                     rules={{
-                        required: 'La cantidad de habitaciones es requerida',
                         min: 0
                     }}
                 ></FormInput>
@@ -108,11 +107,7 @@ export function PropiedadForm({ data, initialValues, onSubmit }) {
                     label="Baños"
                     rules={{ min: 0 }}
                 ></FormInput>
-                <FormCheckbox
-                    name="cochera"
-                    label="Cochera"
-                    rules={{}}
-                ></FormCheckbox>
+                <FormCheckbox name="cochera" label="Cochera"></FormCheckbox>
             </ContentSection>
             <ContentSection title="Información sobre la reserva">
                 <FormInput
@@ -151,7 +146,6 @@ export function PropiedadForm({ data, initialValues, onSubmit }) {
                 <FormCheckbox
                     name="disponible"
                     label="Disponible"
-                    rules={{}}
                 ></FormCheckbox>
             </ContentSection>
         </Form>

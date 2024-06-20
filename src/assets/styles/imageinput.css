@@ -36,7 +36,8 @@
     opacity: 1;
 }
 
-.custom-image-input div {
+.custom-image-input .icon-container {
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;

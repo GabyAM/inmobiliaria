@@ -1,7 +1,7 @@
 import { useController, useFormContext } from 'react-hook-form';
 import { ErrorLabel } from './ErrorLabel';
 
-export function FormCheckbox({ name, label, rules }) {
+export function FormCheckbox({ name, label, rules = {} }) {
     const { control, errors } = useFormContext();
     const {
         field: { onChange, onBlur, value, ref, name: fieldName }
