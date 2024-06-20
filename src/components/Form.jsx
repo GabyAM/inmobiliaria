@@ -18,8 +18,8 @@ export function Form({
         handleSubmit,
         control,
         formState: { defaultValues, errors, isSubmitting },
-        getValues,
-        setError
+        setError,
+        setValue
     } = useForm({
         defaultValues: initialValues
     });
@@ -69,7 +69,7 @@ export function Form({
     }
 
     return (
-        <FormProvider {...{ control, errors }}>
+        <FormProvider {...{ control, errors, setValue }}>
             <form
                 className={`main-form ${isSubmitting ? 'pending' : ''}`}
                 onSubmit={handleSubmit(handleFormSubmit)}

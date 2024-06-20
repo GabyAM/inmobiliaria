@@ -4,7 +4,7 @@ import { ImageIcon } from './Icons';
 import { ErrorLabel } from './ErrorLabel';
 
 export function ImageInput({ name, rules }) {
-    const { control, errors } = useFormContext();
+    const { control, errors, setValue } = useFormContext();
     const {
         field: { onChange, onBlur, value, ref, name: fieldName },
         fieldState: { isDirty }
@@ -25,8 +25,12 @@ export function ImageInput({ name, rules }) {
 
     async function handleInputChange(e) {
         if (e.target.files && e.target.files[0]) {
-            const result = await getBase64(e.target.files[0]);
+            const file = e.target.files[0];
+            const result = await getBase64(file);
             onChange(result);
+            if (file.type.startsWith('image/')) {
+                setValue('tipo_imagen', file.type.split('/')[1]);
+            }
         }
     }
 
