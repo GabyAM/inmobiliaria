@@ -1,17 +1,17 @@
-import { fetchTipoPropiedades } from '../api/tipoPropiedades';
 import { fetchInquilinos } from '../api/inquilinos';
 import { useFetchData } from '../hooks/useFetchData';
 import { Form } from './Form';
 import { ContentSection } from './ContentSection';
 import { FormInput } from './FormInput';
 import { FormSelect } from './FormSelect';
+import { fetchPropiedades } from '../api/propiedad';
 
 export function ReservaForm({ data, onSubmit }) {
     const {
-        data: tipoPropiedades,
-        isLoading: isLoadingTipoPropiedades,
-        error: errorTipoPropiedades
-    } = useFetchData(fetchTipoPropiedades);
+        data: propiedades,
+        isLoading: isLoadingPropiedades,
+        error: errorPropiedades
+    } = useFetchData(fetchPropiedades);
 
     const {
         data: inquilinos,
@@ -22,7 +22,7 @@ export function ReservaForm({ data, onSubmit }) {
     return (
         <Form
             data={data}
-            disabled={!inquilinos || !tipoPropiedades}
+            disabled={!inquilinos || !propiedades}
             onSubmit={onSubmit}
             successUrl={'/reservas'}
         >
@@ -34,12 +34,12 @@ export function ReservaForm({ data, onSubmit }) {
                     }}
                     label="propiedad"
                     placeholder="selecione el tipo de propiedad"
-                    data={tipoPropiedades?.map((tp) => ({
-                        id: tp.id,
-                        text: tp.nombre
+                    data={propiedades?.map((p) => ({
+                        id: p.id,
+                        text: p.domicilio
                     }))}
-                    isLoading={isLoadingTipoPropiedades}
-                    error={errorTipoPropiedades}
+                    isLoading={isLoadingPropiedades}
+                    error={errorPropiedades}
                 ></FormSelect>
                 <FormSelect
                     name="inquilino_id"

@@ -15,9 +15,12 @@ export function EditInquilino() {
         return <p>Hubo un error</p>;
     }
     return (
-        <InquilinoForm
-            data={inquilino}
-            onSubmit={(formData) => editInquilino(formData, id)}
-        ></InquilinoForm>
+        <>
+            <h2>Editar inquilino</h2>
+            <InquilinoForm
+                data={inquilino}
+                onSubmit={(formData) => editInquilino(formData, id)}
+            ></InquilinoForm>
+        </>
     );
 }

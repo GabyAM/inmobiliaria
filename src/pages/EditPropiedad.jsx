@@ -16,10 +16,13 @@ export function EditPropiedad() {
         return <p>Hubo un error</p>;
     } else {
         return (
-            <PropiedadForm
-                data={propiedad}
-                onSubmit={(formData) => editPropiedad(id, formData)}
-            ></PropiedadForm>
+            <>
+                <h2>Editar propiedad</h2>
+                <PropiedadForm
+                    data={propiedad}
+                    onSubmit={(formData) => editPropiedad(id, formData)}
+                ></PropiedadForm>
+            </>
         );
     }
 }
