@@ -26,7 +26,7 @@ export function ReservaForm({ data, onSubmit }) {
             onSubmit={onSubmit}
             successUrl={'/reservas'}
         >
-            <ContentSection title="FORM RESERVAS">
+            <ContentSection title="FORMULARIO DE RESERVAS">
                 <FormSelect
                     name="propiedad_id"
                     rules={{

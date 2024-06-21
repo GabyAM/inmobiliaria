@@ -23,7 +23,6 @@ export function EditReserva (){
         return (
             <ReservaForm
                 data={reserva}
-                initialValues={reserva}
                 onSubmit={(formData) => editReserva(id, formData)}
             />
         );
