@@ -1,4 +1,8 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {
+    Navigate,
+    RouterProvider,
+    createBrowserRouter
+} from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { TiposPropiedad } from './pages/TiposPropiedad';
 import { NewTiposPropiedad } from './pages/NewTiposPropiedad';
@@ -24,6 +28,10 @@ export function Router() {
             path: '/',
             element: <Layout></Layout>,
             children: [
+                {
+                    path: '/',
+                    element: <Navigate to={'/propiedades'}></Navigate>
+                },
                 {
                     path: '/tipos_propiedad',
                     element: <TiposPropiedad></TiposPropiedad>
