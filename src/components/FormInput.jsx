@@ -9,7 +9,7 @@ export function FormInput({ type = 'text', name, rules = {}, label }) {
 
     function handleInputChange(e) {
         let { value } = e.target;
-        if (type === 'number') {
+        if (type === 'number' && value) {
             value = Number(value);
         }
         onChange(value);

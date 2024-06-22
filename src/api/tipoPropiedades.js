@@ -1,4 +1,5 @@
-export function fetchTipoPropiedades() { //propiedades
+export function fetchTipoPropiedades() {
+    //propiedades
     return fetch('http://localhost/tipo_propiedades')
         .then((res) => {
             if (!res.ok) {
@@ -25,6 +26,11 @@ export function editTiposPropiedad(formData, id) {
         method: 'PUT',
         body: JSON.stringify(formData),
         headers: { 'Content-Type': 'application/json' }
+    }).then((res) => {
+        if (!res.ok && res.status === 500) {
+            throw new Error('');
+        }
+        return res.json();
     });
 }
 
@@ -33,6 +39,11 @@ export function newTiposPropiedad(formData) {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: { 'Content-Type': 'application/json' }
+    }).then((res) => {
+        if (!res.ok && res.status === 500) {
+            throw new Error('');
+        }
+        return res.json();
     });
 }
 

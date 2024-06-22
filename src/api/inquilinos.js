@@ -36,6 +36,11 @@ export function editInquilino(formData, id) {
         method: 'PUT',
         body: JSON.stringify(formData),
         headers: { 'Content-Type': 'application/json' }
+    }).then((res) => {
+        if (!res.ok && res.status === 500) {
+            throw new Error('');
+        }
+        return res.json();
     });
 }
 
@@ -44,5 +49,10 @@ export function addInquilino(formData) {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: { 'Content-Type': 'application/json' }
+    }).then((res) => {
+        if (!res.ok && res.status === 500) {
+            throw new Error('');
+        }
+        return res.json();
     });
 }

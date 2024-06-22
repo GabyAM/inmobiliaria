@@ -55,13 +55,23 @@ export function Form({
         if (actionType === 'async') {
             return onSubmit(formData)
                 .then((res) => {
-                    if (!res.ok) {
-                        throw new Error('Hubo un error al guardar');
-                    }
-                    navigate(successUrl);
+                    //en la respuesta puede haber un solo error, o multiples (si por algún motivo no se realiza
+                    // la validacion en el frontend correctamente)
+                    if (res.error) {
+                        setError('root.serverError', { message: res.error });
+                    } else if (res.errors) {
+                        Object.keys(res.errors).forEach((key) => {
+                            setError(key, {
+                                type: 'server',
+                                message: Object.values(res.errors[key])[0]
+                            });
+                        });
+                    } else navigate(successUrl);
                 })
                 .catch((e) => {
-                    setError('root.serverError', { message: e.message });
+                    setError('root.serverError', {
+                        message: 'Hubo un error al guardar'
+                    });
                 });
         } else {
             return onSubmit(formData);
