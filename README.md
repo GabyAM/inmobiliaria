@@ -1,7 +1,38 @@
-inmobiliaria-
+# inmobiliaria
 
 Segundo proyecto de la materia seminario de lenguajes\
 **Realizado por:** Gabriel Miranda y Santiago Álvarez.
+
+## Resumen de componentes
+
+Además de los componentes requeridos, está el componente Layout, que acomoda
+esos componentes en la vista, los componentes que muestran un item (propiedad,
+reserva, etc.), y los componentes relacionados a los formularios.
+
+### Formularios
+
+La base de los formularios es el componente Form, este devuelve un formulario
+genérico y contiene lógica para llenar los campos con la información recibida o
+bien empezar con los campos vacíos, manejar envío, y errores de cliente y
+servidor. El formulario solo va a enviar los campos que hayan sido modificados.\
+Los componentes FormInput, FormSelect, y FormCheckbox, son inputs genericos hechos
+para implementarse facilmente con el Form, en el caso del select, este recibe los
+datos a mostrar como opciones, ya que todos los select que mostramos son para elegir
+un item de la base de datos.\
+Luego hay una serie de componentes que usan este Form y le pasan los campos
+junto con otra información recibida para construir un formulario específico,
+como PropiedadForm o InquilinoForm. Estos se separaron en un componente
+principalmente por que son usados dos veces, en la página de edit, que le provee
+una data, y en la página de new, que lo inicializa vacío.
+
+## Librerías usadas
+
+-   **react-hook-form**: Esta librería nos da muchas funcionalidades
+    convenientes para manejar formularios. Maneja los estados de los campos
+    internamente de una manera optimizada y permite registrar los inputs con una
+    serie de reglas para validar, entre otras cosas.
+-   **react-router-dom**: permite relacionar componentes a rutas, y tiene
+    utilidades como el useNavigate y useParams.
 
 ## Modificaciones en API
 
