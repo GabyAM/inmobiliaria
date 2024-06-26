@@ -12,7 +12,7 @@ export function EditLocalidad() {
     if (isLoading) {
         return <p>Cargando formulario...</p>;
     } else if (error) {
-        return <p>Hubo un error</p>;
+        return <p>Hubo un error: {error.message}</p>;
     }
     return (
         <>

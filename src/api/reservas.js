@@ -42,7 +42,7 @@ export function fetchRerserva(id) {
         .then((response) => response.data);
 }
 
-export function editReserva(formData, id) {
+export function editReserva(id, formData) {
     return fetch(`http://localhost/reservas/${id}`, {
         method: 'PUT',
         body: JSON.stringify(formData),
@@ -54,10 +54,9 @@ export function editReserva(formData, id) {
         return res.json();
     });
 }
-
 export function newReserva(formData) {
     return fetch(`http://localhost/reservas`, {
-        method: 'PUT',
+        method: 'POST',
         body: JSON.stringify(formData),
         headers: { 'Content-Type': 'application/json' }
     }).then((res) => {
@@ -67,6 +66,7 @@ export function newReserva(formData) {
         return res.json();
     });
 }
+
 
 export function deleteReserva(id) {
     return fetch(`http://localhost/reservas/${id}`, {

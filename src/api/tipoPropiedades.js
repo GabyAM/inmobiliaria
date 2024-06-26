@@ -21,7 +21,7 @@ export function fetchTipoPropiedad(id) {
         .then((response) => response.data);
 }
 
-export function editTiposPropiedad(formData, id) {
+export function editTiposPropiedad(id, formData) {
     return fetch(`http://localhost/tipo_propiedades/${id}`, {
         method: 'PUT',
         body: JSON.stringify(formData),

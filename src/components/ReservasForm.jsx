@@ -68,6 +68,15 @@ export function ReservaForm({ data, onSubmit }) {
                     }}
                     label="cantidad de noches"
                 ></FormInput>
+                <FormInput
+                    name="valor_total"
+                    type="number"
+                    rules={{
+                        required: 'este campo es requerido',
+                        min: 0
+                    }}
+                    label="valor total"
+                ></FormInput>
             </ContentSection>
         </Form>
     );

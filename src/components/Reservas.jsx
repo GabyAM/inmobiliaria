@@ -20,7 +20,6 @@ export function Reservas ({ reservas, onDeleteClick }){
                 <div className="inquilino">
                     <p><strong>Inquilino:</strong> {reservas.inquilino.apellido}-{reservas.inquilino.nombre} </p>
                 </div>
-                <p><strong>fecha de reserva:</strong> {reservas.fecha_desde}</p>
                 <div>
                     <span><strong>Noches: </strong> {reservas.cantidad_noches}</span><span>•</span>
                     <span><strong>Total: </strong>  ${reservas.valor_total}</span>
